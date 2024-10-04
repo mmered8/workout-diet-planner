@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Workout Plan</title>
+</head>
+<body>
+    <h1>Your Workout Plan</h1>
+    <h2>Workout Schedule</h2>
+    <ul>
+        {% for day, exercises in workout.generate_workout_plan().items() %}
+            <li><strong>{{ day }}</strong>: {{ exercises | join(', ') }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Your Diet Plan</h2>
+    <ul>
+        {% for day, meals in diet.generate_diet_plan().items() %}
+            <li><strong>{{ day }}</strong>: {{ meals | join(', ') }}</li>
+        {% endfor %}
+    </ul>
+
+    <a href="/">Go Back</a>
+</body>
+</html>
